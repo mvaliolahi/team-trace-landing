@@ -109,13 +109,13 @@ main,header,footer{position:relative;z-index:1}
 .nav-actions{justify-self:end;display:flex;align-items:center;gap:10px}
 .lang{
   min-height:44px;min-width:56px;padding:0 14px;border:1px solid var(--line-2);border-radius:var(--r-control);
-  color:var(--text-2);font:700 .82rem var(--font-mono);letter-spacing:.04em;
+  color:var(--text-2);font:700 .82rem var(--font-mono);letter-spacing:.04em;white-space:nowrap;
   transition:border-color var(--t) var(--ease),color var(--t) var(--ease),background var(--t) var(--ease);
 }
 .lang:hover{border-color:rgba(255,138,61,.55);color:var(--accent)}
 .nav-cta{
   min-height:44px;display:inline-flex;align-items:center;padding:0 18px;border-radius:var(--r-control);
-  background:var(--accent);color:var(--ink);text-decoration:none;font-size:.88rem;font-weight:800;
+  background:var(--accent);color:var(--ink);text-decoration:none;font-size:.88rem;font-weight:800;white-space:nowrap;
   box-shadow:0 10px 28px -12px rgba(255,138,61,.6);transition:transform var(--t) var(--ease),box-shadow var(--t) var(--ease);
 }
 .nav-cta:hover{transform:translateY(-2px);box-shadow:0 16px 34px -12px rgba(255,138,61,.7)}
@@ -485,6 +485,14 @@ html[lang="fa"] .langs .l-fa,html[lang="en"] .langs .l-en{color:var(--accent);fo
 @media (max-width:720px){
   .nav-links{display:none}
   .nav{grid-template-columns:1fr auto}
+}
+@media (max-width:480px){
+  /* two-row mobile header: brand + lang on top, full-width CTA below —
+     keeps the order/demo button single-line at any phone width */
+  .nav{grid-template-columns:1fr auto;grid-template-areas:"brand lang" "cta cta";gap:12px}
+  .nav-actions{display:contents}
+  .lang{grid-area:lang}
+  .nav-cta{grid-area:cta;justify-content:center}
 }
 @media (max-width:640px){
   .pv-body{grid-template-columns:minmax(0,1fr)}
