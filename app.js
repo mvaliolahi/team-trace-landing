@@ -1,4 +1,4 @@
-/* team·trace landing — behavior: language toggle, preview, reveal, email copy. */
+/* TeamTrace landing — behavior: language toggle, preview, reveal, email copy. */
 "use strict";
 
 (function () {
